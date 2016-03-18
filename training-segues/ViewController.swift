@@ -19,7 +19,27 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func loadBlue (sender: AnyObject!) {
+        
+        let str = "Hey, we just came from yellow!"
+        
+        performSegueWithIdentifier("goToBlue", sender: str)
+    }
 
+    @IBAction func loadRed(sender: AnyObject) {
+        performSegueWithIdentifier("goToRed", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goToBlue" {
+            if let blueVC = segue.destinationViewController as? BlueViewController {
+                if let text = sender as? String {
+                    blueVC.transferText = text
+                }
+            }
+        }
+    }
 
 }
 

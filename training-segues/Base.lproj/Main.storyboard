@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10115" systemVersion="15E64a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10084"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="training_segues" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,86 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btU-q8-fku">
+                                <rect key="frame" x="287" y="301" width="72" height="30"/>
+                                <state key="normal" title="Go to Blue"/>
+                                <connections>
+                                    <action selector="loadBlue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KLt-fV-pY5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNg-zT-rXB">
+                                <rect key="frame" x="289" y="381" width="68" height="30"/>
+                                <state key="normal" title="Go to Red"/>
+                                <connections>
+                                    <action selector="loadRed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXx-Cg-SiM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99540542809999999" green="1" blue="0.42615916279999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="5WO-2m-N1x" kind="show" identifier="goToBlue" id="6jD-sG-hDW"/>
+                        <segue destination="tjg-PJ-2zj" kind="show" identifier="goToRed" id="kW4-ey-0DJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Blue View Controller-->
+        <scene sceneID="lCI-Zn-Ygu">
+            <objects>
+                <viewController id="5WO-2m-N1x" customClass="BlueViewController" customModule="training_segues" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oYc-Lo-8kS"/>
+                        <viewControllerLayoutGuide type="bottom" id="zBm-yl-ydV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NEb-ia-YQn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBN-IS-Olg">
+                                <rect key="frame" x="109" y="190" width="383" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="383" id="34W-bE-GSZ"/>
+                                    <constraint firstAttribute="height" constant="21" id="dnK-hc-sYs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98044380470000003" green="1" blue="0.95121562780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16949329060000001" green="0.1431944134" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nBN-IS-Olg" firstAttribute="centerX" secondItem="NEb-ia-YQn" secondAttribute="centerX" id="WAe-sN-LRX"/>
+                            <constraint firstItem="nBN-IS-Olg" firstAttribute="top" secondItem="oYc-Lo-8kS" secondAttribute="bottom" constant="170" id="WC3-gh-LI2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainLabel" destination="nBN-IS-Olg" id="KrZ-Pj-mNL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cis-D7-Qmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="318"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UId-kJ-YXe">
+            <objects>
+                <viewController id="tjg-PJ-2zj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fk3-fU-m0k"/>
+                        <viewControllerLayoutGuide type="bottom" id="BOG-St-Y6C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OGa-td-o5S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.1920521993" blue="0.18667628859999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHL-1I-B66" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="1040"/>
         </scene>
     </scenes>
 </document>
